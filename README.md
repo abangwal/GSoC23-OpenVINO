@@ -15,14 +15,14 @@ The aim is to build a DeepLearning solution that can read analog meter. This is 
 
 UNET is one of the most famous semantic segmentation models. It was initially introduced in biomedical image segmentation, such as brain image segmentation and liver image segmentation. But because of its performance, it gets widely used in other image segmentation tasks as well.
 According to a research paper [[1](#Refrences)] which shows the performance of widely implemented DL models for semantic segmentation on 'top view person images' mIoU is 80%, 82%, and 84% for FCN, U-Net, and DeepLabv3, respectively.
-Since both UNET and DeepLab have almost the same accuracy and inference time, I decided to use UNET for this solution.
+Since both UNET and DeepLab have almost the same accuracy and inference time, I decided to use UNET for this solution. You can see training [here](training-notebooks/segmentor_training.ipynb).
 
 ![](https://github.com/openvinotoolkit/openvino/assets/71766106/45cd4ec8-60ff-49ae-8701-fc5b0548f60c)
 ![](https://github.com/openvinotoolkit/openvino/assets/71766106/975a5b9e-448c-485e-b23a-420378259ddb)
 
 ### Detector
 
-When it comes to object detection, there are a ton of models available, all serving the same purpose hence, it's always hard to choose one. I chose EfficientDet, which is a scalable and efficient object detection model [[2](#Refrences)] and achieves state-of-the-art precision with fewer parameters, as you can see in the below image. I chose its D0 version as I only have to detect one object, and choosing a heavier model would be just overkill.
+When it comes to object detection, there are a ton of models available, all serving the same purpose hence, it's always hard to choose one. I chose EfficientDet, which is a scalable and efficient object detection model [[2](#Refrences)] and achieves state-of-the-art precision with fewer parameters, as you can see in the below image. I chose its D0 version as I only have to detect one object, and choosing a heavier model would be just overkill. You can see training [here](training-notebooks/detector_training.ipynb).
 
 ![](https://user-images.githubusercontent.com/71766106/245152449-2939f7c9-b287-4a4b-9617-f04cb1910bc1.png)
 
