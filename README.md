@@ -26,6 +26,14 @@ When it comes to object detection, there are a ton of models available, all serv
 
 ![](https://user-images.githubusercontent.com/71766106/245152449-2939f7c9-b287-4a4b-9617-f04cb1910bc1.png)
 
+## How to run ?
+* Install the dependencies
+  * `pip install -r requirements.txt`
+* Follow [these](https://github.com/ashish-2005/GSoC23-OpenVINO/wiki/Training-Models#training-on-custom-data) step and [these notebooks](/training_notebooks) if you want to train models on your costum dataset.
+* Just run the [OpenVINO inferecne](/OV-meter-reader.ipynb) notebook, if using same models
+  * Change path of models with your TF-model in SavedModel [format in notebook](/OV-meter-reader.ipynb).
+
+
 ## Refrences
 * [1] Comparison of Deep-Learning-Based Segmentation Models: Using Top View Person Images (2020)
 * [2] EfficientDet: Scalable and Efficient Object Detection (2020)
