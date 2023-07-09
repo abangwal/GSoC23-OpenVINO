@@ -3,6 +3,12 @@
 
 This repository hosts the code for training models for the GSoC23 project ["Industrial Meter Reading with OpenVINO"](https://summerofcode.withgoogle.com/programs/2023/projects/3eKcuFkd), which is implemented under Intel's [OpenVINO Toolkit](https://github.com/openvinotoolkit) organization.
 
+* [Description](#description)
+ *[Segmentor](#segmentor)
+ *[Detector](#detector)
+* [Wiki-Documentation](https://github.com/ashish-2005/GSoC23-OpenVINO/wiki)
+* [Guide to run notebooks](#how-to-run-)
+  
 ## Description
 
 The aim is to build a DeepLearning solution that can read analog meter. This is basically a computer vision project broadly devided into two steps
