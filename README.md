@@ -29,7 +29,7 @@ When it comes to object detection, there are a ton of models available, all serv
 ## How to run ?
 * Install the dependencies
   * `pip install -r requirements.txt`
-* Follow [these](https://github.com/ashish-2005/GSoC23-OpenVINO/wiki/Training-Models#training-on-custom-data) step and [these notebooks](/training_notebooks) if you want to train models on your costum dataset.
+* Follow [these](https://github.com/ashish-2005/GSoC23-OpenVINO/wiki/Training-Models#training-on-custom-data) step and [these notebooks](/training-notebooks) if you want to train models on your costum dataset.
 * Just run the [OpenVINO inferecne](/OV-meter-reader.ipynb) notebook, if using same models
   * Change path of models with your TF-model in SavedModel [format in notebook](/OV-meter-reader.ipynb).
 
