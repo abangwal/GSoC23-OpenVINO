@@ -3,6 +3,12 @@
 
 This repository hosts the code for training models for the GSoC23 project ["Industrial Meter Reading with OpenVINO"](https://summerofcode.withgoogle.com/programs/2023/projects/3eKcuFkd), which is implemented under Intel's [OpenVINO Toolkit](https://github.com/openvinotoolkit) organization.
 
+* [Description](#description)
+    * [Segmentor](#segmentor)
+    * [Detector](#detector)
+* [Wiki-Documentation](https://github.com/ashish-2005/GSoC23-OpenVINO/wiki)
+* [Guide to run notebooks](#how-to-run-)
+  
 ## Description
 
 The aim is to build a DeepLearning solution that can read analog meter. This is basically a computer vision project broadly devided into two steps
@@ -25,6 +31,14 @@ Since both UNET and DeepLab have almost the same accuracy and inference time, I 
 When it comes to object detection, there are a ton of models available, all serving the same purpose hence, it's always hard to choose one. I chose EfficientDet, which is a scalable and efficient object detection model [[2](#Refrences)] and achieves state-of-the-art precision with fewer parameters, as you can see in the below image. I chose its D0 version as I only have to detect one object, and choosing a heavier model would be just overkill. You can see training [here](training-notebooks/detector_training.ipynb).
 
 ![](https://user-images.githubusercontent.com/71766106/245152449-2939f7c9-b287-4a4b-9617-f04cb1910bc1.png)
+
+## How to run ?
+* Install the dependencies
+  * `pip install -r requirements.txt`
+* Follow [these](https://github.com/ashish-2005/GSoC23-OpenVINO/wiki/Training-Models#training-on-custom-data) step and [these notebooks](/training-notebooks) if you want to train models on your costum dataset.
+* Just run the [OpenVINO inferecne](/OV-meter-reader.ipynb) notebook, if using same models
+  * Change path of models with your TF-model in SavedModel format in the [notebook](/OV-meter-reader.ipynb).
+
 
 ## Refrences
 * [1] Comparison of Deep-Learning-Based Segmentation Models: Using Top View Person Images (2020)
