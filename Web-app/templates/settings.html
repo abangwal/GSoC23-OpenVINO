@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Settings</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<div class="topnav">
+  <a class='name' href='{{url_for("index")}}'>Industrial Meter Reader</a>
+  <a class='link' href="#about">About</a>
+  <a class='link' href='{{url_for("settings")}}'>Settings</a>
+  <a class='link' href='{{url_for("index")}}'>Home</a>
+</div>
+
+<body style="margin: 0px;">
+    <div class='settings-box'>
+        <form method="post" action="{{'settings'}}">
+            Select number of cameras :
+            <select class='dropdown' name='number_of_cameras'>
+                {% for i in range(0,6)%}
+                    <option value="{{i}}">{{i}}</option>
+                {%endfor%}
+            </select>
+            <button type="submit" class="btn">Go</button>
+        </form>
+    </div>
+    <form method="post" action="{{'settings'}}">
+        {% for i in range(1,n+1) %}
+            <div class='settings'>
+                <table>
+                    <tr>
+                        <th>Settings for Camera {{i}}</th>
+                    </tr>
+                    <tr>
+                        <td>Meter Range :</td>
+                        <td><input type="text" name="meter_range{{i}}" value="{{prev_configs[i]['meter_range']}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Number of Interval :</td>
+                        <td><input type="text" name="n_interval{{i}}" value="{{prev_configs[i]['meter_interval']}}"></td>
+                    </tr>
+                    <tr>
+                        <td>Refresh Time : :</td>
+                        <td><input type="time" name="refresh_time{{i}}" value="{{prev_configs[i]['interval']}}"></td>
+                    </tr>
+                </table>
+            </div>
+        {%endfor%}
+        <div class="button">
+            <button type="submit" class="btn">Save</button>
+        </div>
+    </form>
+</body>
+    <footer>
+        Devoloped under GSoC'23 @ Intel-OpenVINO
+    </footer>

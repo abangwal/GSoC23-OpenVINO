@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multi Camera</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<div class="topnav">
+  <a class='name' href='{{url_for("index")}}'>Industrial Meter Reader</a>
+  <a class='link' href="#about">About</a>
+  <a class='link' href='{{url_for("settings")}}'>Settings</a>
+  <a class='link' href='{{url_for("index")}}'>Home</a>
+</div>
+
+<body>
+    <div class="wrapper">
+        <table>
+            <tr>
+                <td>
+                    <div class="camera" style="padding-right: 300px;">
+                        <div class="cameraID">Camera 1</div>
+                        <img src="{{ url_for('video_feed',camera_id=0) }}" height=300px>
+                    </div>
+                </td>
+                <td>
+                     <div class="camera">
+                        <div class="cameraID">Camera 2</div>
+                        <img src="{{ url_for('video_feed',camera_id=1) }}" height=300px>
+                    </div>
+                </td> 
+            </tr>
+            <tr>
+                <td>
+                    Refresh time : {{prev_data[0]['interval']}} seconds
+                    <br>
+                    <div id="cont0" class="cont" style="padding-right: 300px;"></div>
+                </td>
+                <td>
+                    Refresh time : {{prev_data[1]['interval']}} seconds
+                    <br>
+                    <div id="cont1" class="cont"></div>
+                </td>
+            </tr>
+                <td>
+                    <div class="camera">
+                        <div class="cameraID">Camera 3</div>
+                        <img src="{{ url_for('video_feed',camera_id=2) }}" height=300px>
+                    </div>
+                </td>
+                <td> 
+                    <div class="camera">
+                        <div class="cameraID">Camera 4</div>
+                        <img src="{{ url_for('video_feed',camera_id=3) }}" height=300px>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Refresh time : {{prev_data[2]['interval']}} seconds
+                    <br>
+                    <div id="cont2" class="cont" style="padding-right: 300px;"></div>
+                </td>
+                <td>
+                    Refresh time : {{prev_data[3]['interval']}} seconds
+                    <br>
+                    <div id="cont3" class="cont"></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+function fetcher(i) {
+    fetch(`/reading_feed/${i}`)
+    .then(response => response.json())
+    .then(text => {
+        let cont = document.getElementById(`cont${i}`);
+         
+         // Create the table element
+         let table = document.createElement("table");
+         
+         // Get the keys (column names) of the first object in the JSON data
+         let cols = ['Time','Reading']
+         let cols_id = ['time','reading']
+         
+         // Create the header element
+         let thead = document.createElement("thead");
+         let tr = document.createElement("tr");
+         
+         // Loop through the column names and create header cells
+         for (var j =0; j <= 1; j++)
+           {
+            let th = document.createElement("th");
+            th.innerText = cols[j]; // Set the column name as the text of the header cell
+            tr.appendChild(th); // Append the header cell to the header row
+         };
+         thead.appendChild(tr); // Append the header row to the header
+         table.append(tr) // Append the header to the table
+        
+         // Loop through the JSON data and create table rows
+         for (var k = 0; k < text['time'].length; k++){
+            let tr = document.createElement("tr");
+            
+            // Loop through the values and create table cells
+           for (var l = 0; l < 2; l++){
+               let td = document.createElement("td");
+               td.innerText = text[cols_id[l]][k]; // Set the value as the text of the table cell
+               tr.appendChild(td); // Append the table cell to the table row
+            };
+            table.appendChild(tr); // Append the table row to the table
+         };
+         cont.replaceChildren();
+         cont.appendChild(table);// Append the table to the container element
+        
+        });
+    }
+
+function updater(argument) {
+    for (var i = 0; i < 4; i++) {
+        fetcher(i=i);
+    }
+}
+
+
+setInterval(updater, 1000);  // run `updater()` every 1000ms (1s)
+</script>
+
+</body>
+<footer>
+        Devoloped under GSoC'23 @ Intel-OpenVINO
+    </footer>
+
+

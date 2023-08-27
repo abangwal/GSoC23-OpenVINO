@@ -1,0 +1,140 @@
+body{
+  margin: 0px; 
+  font-family: 'Courier New', monospace;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #1d73c9;
+  padding-right: 10px;
+  overflow: hidden;
+}
+
+/* Add a color to the active/current link */
+.topnav a.name {
+  font-weight: bold;
+  float: left;
+  font-size: 30px;
+  background-color: #368ce2;
+  padding: 18px 16px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a.link {
+  float: right;
+  text-align: center;
+  padding: 20px 25px;
+  text-decoration: none;
+  font-size: 25px;
+  color : white;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #82f3ff;
+  color: black;
+}
+
+.camera {
+  display:table-cell ;
+}
+
+.cameraID {
+  font-weight: bold;
+  text-align: center;
+  padding : 10px 0px 10px;
+  font-size: 20px;
+}
+
+.wrapper{
+  display: table;
+  padding-top: 50px;
+  padding-left: 50px;
+  padding-bottom: 100px;
+}
+
+.settings-box{
+  padding: 50px;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.settings-box .dropdown{
+  padding: 5px;
+  font-size: 20px;
+}
+
+.btn{
+  border-radius: 8px;
+  font-weight: bold;
+  background-color:#368ce2 ;
+  font-size: 20px;
+  padding: 8px;
+  border: none;
+}
+
+.btn:hover{
+  background-color: #82f3ff ;
+
+}
+
+.settings{
+  padding: 15px;
+  padding-left: 60px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.button{
+  padding-top: 20px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+.cont table{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cont th {
+         border: 1px solid black;
+         border-collapse: collapse; 
+      }
+.cont td {
+         border: 1px solid black;
+         border-collapse: collapse; 
+      }
+
+img {
+  border-radius: 30px;
+}
+
+input {
+  font-size: 20px;
+  border-radius: 10px;
+  border-color: #368ce2 ;
+  padding: 5px;
+}
+form{
+  display: inline-block;
+}
+th{
+  padding: 15px;
+}
+td {
+  padding: 10px;
+}
+
+footer {
+   padding: 10px;
+   text-align: center;
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+   height: 20px;   /* Height of the footer */
+   background: #666;
+}
